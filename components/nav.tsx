@@ -3,7 +3,11 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
+
+const LOGO_URL =
+  "https://galaxy-prod.tlcdn.com/view/user_35cxGzZba9uxfzJ3oAxqL0bs4ND/643860b9e53b4e3481798c127658f967.png";
 
 export function Nav() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -29,15 +33,22 @@ export function Nav() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
         isScrolled
-          ? "bg-[#0d1b2e]/95 backdrop-blur-md shadow-xl py-3"
-          : "bg-transparent py-5"
+          ? "bg-[#0d1b2e]/95 backdrop-blur-md shadow-xl py-2"
+          : "bg-transparent py-3"
       )}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#e8932a] to-[#c9a84c] flex items-center justify-center shadow-lg">
-            <span className="text-white font-bold text-sm tracking-tight">RL</span>
+          <div className="bg-white rounded-xl p-1 shadow-md">
+            <Image
+              src={LOGO_URL}
+              alt="Recovery Life Collective"
+              width={72}
+              height={72}
+              className="rounded-lg object-contain"
+              priority
+            />
           </div>
           <div>
             <span className="text-white font-cormorant font-semibold text-lg tracking-wide leading-none block">

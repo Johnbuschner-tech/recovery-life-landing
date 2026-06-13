@@ -1,4 +1,8 @@
 import { Heart } from "lucide-react";
+import Image from "next/image";
+
+const LOGO_URL =
+  "https://galaxy-prod.tlcdn.com/view/user_35cxGzZba9uxfzJ3oAxqL0bs4ND/643860b9e53b4e3481798c127658f967.png";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -16,25 +20,29 @@ export function Footer() {
         <div className="grid md:grid-cols-4 gap-10 mb-12">
           {/* Brand */}
           <div className="md:col-span-2">
-            <div className="flex items-center gap-3 mb-5">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#e8932a] to-[#c9a84c] flex items-center justify-center shadow-lg">
-                <span className="text-white font-bold text-sm">RL</span>
+            <div className="flex items-start gap-4 mb-5">
+              {/* Logo with white background to ensure text is fully visible */}
+              <div className="bg-white rounded-xl p-2 shadow-lg flex-shrink-0">
+                <Image
+                  src={LOGO_URL}
+                  alt="Recovery Life Collective"
+                  width={110}
+                  height={110}
+                  className="rounded-lg object-contain"
+                />
               </div>
-              <div>
-                <span className="text-white font-cormorant font-semibold text-xl block leading-none">
-                  Recovery Life Wellness Plan
-                </span>
-                <span className="text-white/30 text-[10px] tracking-widest uppercase">
+              <div className="pt-1">
+                <span className="text-white/30 text-[10px] tracking-widest uppercase block mb-1">
                   recoverywellnessplan.app
                 </span>
+                <p className="text-white/45 text-sm leading-relaxed max-w-xs">
+                  A free, private wellness planning tool built to support the
+                  whole person on their journey to lasting recovery — body,
+                  mind, spirit, and community.
+                </p>
               </div>
             </div>
-            <p className="text-white/45 text-sm leading-relaxed max-w-xs">
-              A free, private wellness planning tool built to support the whole
-              person on their journey to lasting recovery — body, mind, spirit,
-              and community.
-            </p>
-            <div className="mt-6">
+            <div className="mt-4">
               <a
                 href="https://recoverywellnessplan.app"
                 target="_blank"
